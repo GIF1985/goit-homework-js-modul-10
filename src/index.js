@@ -5,8 +5,8 @@ import './css/styles.css';
 import Notiflix from 'notiflix';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-// импортируем функцию debounce из пакета lodash.debounce.
-import debounce from 'lodash.debounce';
+// // импортируем функцию debounce из пакета lodash.debounce.
+// import debounce from 'lodash.debounce';
 
 // константа для задержки вызова колбэка debounce.
 const DEBOUNCE_DELAY = 300;
