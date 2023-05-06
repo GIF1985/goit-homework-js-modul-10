@@ -74,11 +74,11 @@ function renderCountryList(countries) {
   else if (countries.length === 1) {
     const country = countries[0];
     const html = `
-  <li><h2>${country.name.official}</h2></li>
-  <li>Population: ${country.population}</li>
-  <li>Capital: ${country.capital}</li>
-  <li>Languages: ${Object.values(country.languages).join(', ')}</li>
-  <li><img src="${country.flags.svg}" alt="${
+      <li><h2>${country.name.official}</h2></li>
+      <li>Population: ${country.population}</li>
+      <li>Capital: ${country.capital}</li>
+      <li>Languages: ${Object.values(country.languages).join(', ')}</li>
+      <li><img src="${country.flags.svg}" alt="${
       country.name.official
     } flag"></li>  
 `;
