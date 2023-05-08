@@ -5,31 +5,31 @@ import { fetchCountries } from './js/fetchCountries.js';
 import debounce from 'lodash.debounce';
 
 const debouncedRequest = 300;
-const searchBox = document.querySelector('#search-box');
-const countryList = document.querySelector('.country-list');
-const countryInfo = document.querySelector('.country-info');
+const searchBoxEl = document.querySelector('#search-box');
+const countryListEl = document.querySelector('.country-list');
+const countryInfoEl = document.querySelector('.country-info');
 
 const debouncedFetchCountries = debounce(name => {
   if (name.length > 0) {
     fetchCountries(name)
       .then(countries => {
-        renderCountryList(countries);
+        renderCountryListEl(countries);
       })
       .catch(error => {
         console.error(error);
       });
   } else {
-    clearCountryList();
+    clearCountryListEl();
   }
 }, debouncedRequest);
 
-function clearCountryList() {
-  countryList.innerHTML = '';
-  countryInfo.innerHTML = '';
+function clearCountryListEl() {
+  countryListEl.innerHTML = '';
+  countryInfoEl.innerHTML = '';
 }
 
-function renderCountryList(countries) {
-  clearCountryList();
+function renderCountryListEl(countries) {
+  clearCountryListEl();
 
   if (countries.length > 10) {
     Notiflix.Notify.info(
@@ -46,7 +46,7 @@ function renderCountryList(countries) {
       country.name.official
     } flag"></li>  
     `;
-    countryList.innerHTML = html;
+    countryListEl.innerHTML = html;
   } else if (countries.length > 1) {
     const html = countries
       .map(
@@ -57,12 +57,12 @@ function renderCountryList(countries) {
           </div>`
       )
       .join('');
-    countryInfo.innerHTML = html;
+    countryInfoEl.innerHTML = html;
   } else {
     Notiflix.Notify.failure('Oops, there is no country with that name');
   }
 }
 
-searchBox.addEventListener('input', e => {
+searchBoxEl.addEventListener('input', e => {
   debouncedFetchCountries(e.target.value.trim());
 });
