@@ -66,25 +66,3 @@ function renderCountryList(countries) {
 searchBox.addEventListener('input', e => {
   debouncedFetchCountries(e.target.value.trim());
 });
-
-countryList.addEventListener('click', e => {
-  if (e) {
-    fetchCountries(countryCode)
-      .then(countries => {
-        const country = countries[0];
-        const html = `
-          <li><h2>${country.name.common}</h2></li>
-          <li>Population: ${country.population}</li>
-          <li>Capital: ${country.capital}</li>
-          <li>Languages: ${Object.values(country.languages).join(', ')}</li>
-          <li><img src="${country.flags.svg}" alt="${
-          country.name.common
-        } flag"></li>  
-        `;
-        countryInfo.innerHTML = html;
-      })
-      .catch(error => {
-        Notiflix.Notify.failure('Oops, there is no country with that name');
-      });
-  }
-});
