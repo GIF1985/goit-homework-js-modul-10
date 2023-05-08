@@ -4,7 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchCountries } from './js/fetchCountries.js';
 import debounce from 'lodash.debounce';
 
-const DEBOUNCE_DEL = 300;
+const delayedHttpRequest = 300;
 const searchBox = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
@@ -21,7 +21,7 @@ const debouncedFetchCountries = debounce(name => {
   } else {
     clearCountryList();
   }
-}, DEBOUNCE_DEL);
+}, delayedHttpRequest);
 
 function clearCountryList() {
   countryList.innerHTML = '';
