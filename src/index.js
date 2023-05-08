@@ -68,7 +68,7 @@ searchBox.addEventListener('input', e => {
 });
 
 countryList.addEventListener('click', e => {
-  if (ert) {
+  if (e) {
     fetchCountries(countryCode)
       .then(countries => {
         const country = countries[0];
