@@ -65,11 +65,16 @@ body {
 }
 
 .country-info div {
-  margin: 10px 0;
+  display: flex;
+  align-items: baseline;
+  margin-right: 10px;
+  margin-left: 10px;
   font-size: 18px;
 }
 
 .country-info img {
-  height: auto;
+  margin-right: 10px;
+  max-width: 30px;
+  max-height: 30px;
   margin-top: 10px;
 }
